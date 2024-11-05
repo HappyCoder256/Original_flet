@@ -368,6 +368,8 @@ Future setupDesktop() async {
       if (hideWindowOnStart == null) {
         await windowManager.show();
         await windowManager.focus();
+      } else {
+        await windowManager.setSkipTaskbar(true);
       }
     });
   }
