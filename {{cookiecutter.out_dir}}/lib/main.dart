@@ -10,6 +10,7 @@ import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:serious_python/serious_python.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:window_manager/window_manager.dart';
 
 {% for dep in cookiecutter.flutter.dependencies %}
 import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
@@ -345,4 +346,29 @@ Future<int> getUnusedPort() {
     socket.close();
     return port;
   });
+}
+
+bool isDesktop() {
+  return !kIsWeb &&
+      (defaultTargetPlatform == TargetPlatform.windows ||
+          defaultTargetPlatform == TargetPlatform.macOS ||
+          defaultTargetPlatform == TargetPlatform.linux);
+}
+
+Future setupDesktop() async {
+  if (isDesktop()) {
+    WidgetsFlutterBinding.ensureInitialized();
+    await windowManager.ensureInitialized();
+
+    Map<String, String> env = Platform.environment;
+    var hideWindowOnStart = env["FLET_HIDE_WINDOW_ON_START"];
+    debugPrint("hideWindowOnStart: $hideWindowOnStart");
+
+    await windowManager.waitUntilReadyToShow(null, () async {
+      if (hideWindowOnStart == null) {
+        await windowManager.show();
+        await windowManager.focus();
+      }
+    });
+  }
 }
