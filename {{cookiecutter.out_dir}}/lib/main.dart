@@ -198,7 +198,7 @@ Future prepareApp() async {
       environmentVariables["FLET_SERVER_PORT"] = tcpPort.toString();
     } else {
       // use UDS on other platforms
-      pageUrl = "flet.sock";
+      pageUrl = "flet_$pid.sock";
       environmentVariables["FLET_SERVER_UDS_PATH"] = pageUrl;
     }
   }
@@ -227,7 +227,7 @@ Future<String?> runPythonApp(List<String> args) async {
         'Python output TCP Server is listening on port ${outSocketServer.port}');
     socketAddr = "$tcpAddr:${outSocketServer.port}";
   } else {
-    socketAddr = "stdout.sock";
+    socketAddr = "stdout_$pid.sock";
     if (await File(socketAddr).exists()) {
       await File(socketAddr).delete();
     }
