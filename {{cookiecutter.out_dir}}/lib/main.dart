@@ -362,13 +362,15 @@ Future setupDesktop() async {
 
     Map<String, String> env = Platform.environment;
     var hideWindowOnStart = env["FLET_HIDE_WINDOW_ON_START"];
+    var hideAppOnStart = env["FLET_HIDE_APP_ON_START"];
     debugPrint("hideWindowOnStart: $hideWindowOnStart");
+    debugPrint("hideAppOnStart: $hideAppOnStart");
 
     await windowManager.waitUntilReadyToShow(null, () async {
-      if (hideWindowOnStart == null) {
+      if (hideWindowOnStart == null && hideAppOnStart == null) {
         await windowManager.show();
         await windowManager.focus();
-      } else {
+      } else if (hideAppOnStart != null) {
         await windowManager.setSkipTaskbar(true);
       }
     });
