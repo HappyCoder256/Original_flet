@@ -99,6 +99,8 @@ void main(List<String> args) async {
     debugPrint = (String? message, {int? wrapWidth}) => null;
   }
 
+  await setupDesktop();
+
   {% for dep in cookiecutter.flutter.dependencies %}
   {{ dep }}.ensureInitialized();
   {% endfor %}
@@ -156,8 +158,6 @@ Future prepareApp() async {
       setPathUrlStrategy();
     }
   } else {
-    await setupDesktop();
-
     // extract app from asset
     appDir = await extractAssetZip(assetPath, checkHash: true);
 
