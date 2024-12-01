@@ -17,7 +17,7 @@ import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
 {% endfor %}
 
 const bool isProduction = bool.fromEnvironment('dart.vm.product');
-
+final String defaultLocale = Platform.localeName;
 const assetPath = "app/app.zip";
 const pythonModuleName = "{{ cookiecutter.python_module_name }}";
 final hideLoadingPage =
