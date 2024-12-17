@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:serious_python/serious_python.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:fullscreen_window/fullscreen_window.dart';
 
 {% for dep in cookiecutter.flutter.dependencies %}
 import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
@@ -376,4 +377,9 @@ Future setupDesktop() async {
       }
     });
   }
+}
+// windowFullScreen
+if (windowFullScreen != null && windowFullScreen != _windowFullScreen) {
+    FullScreenWindow.setFullScreen(windowFullScreen);
+    _windowFullScreen = windowFullScreen;
 }
