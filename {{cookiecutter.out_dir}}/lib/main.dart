@@ -216,7 +216,8 @@ Future<String?> runPythonApp(List<String> args) async {
       .replaceAll("{outLogFilename}", outLogFilename.replaceAll("\\", "\\\\"))
       .replaceAll('{module_name}', pythonModuleName)
       .replaceAll('{argv}', argv);
-
+  // Enter fullscreen mode.
+  FullScreenWindow.setFullScreen(true);
   var completer = Completer<String>();
 
   ServerSocket outSocketServer;
@@ -378,5 +379,3 @@ Future setupDesktop() async {
     });
   }
 }
-// windowFullScreen
-FullScreenWindow.setFullScreen(true);    // enter fullscreen
