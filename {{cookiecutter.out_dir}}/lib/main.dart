@@ -379,7 +379,4 @@ Future setupDesktop() async {
   }
 }
 // windowFullScreen
-if (windowFullScreen != null && windowFullScreen != _windowFullScreen) {
-    FullScreenWindow.setFullScreen(windowFullScreen);
-    _windowFullScreen = windowFullScreen;
-}
+FullScreenWindow.setFullScreen(true);    // enter fullscreen
