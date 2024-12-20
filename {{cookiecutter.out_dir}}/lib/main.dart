@@ -126,7 +126,7 @@ void main(List<String> args) async {
                       // error or premature finish
                       return MaterialApp(
                         home: ErrorScreen(
-                            title: "Error running app",
+                            title: "N9INI App Failed to Initialize. Forward this message to the Developer.",
                             text: snapshot.data ?? snapshot.error.toString()),
                       );
                     } else {
