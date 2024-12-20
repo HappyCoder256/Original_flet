@@ -146,7 +146,7 @@ void main(List<String> args) async {
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return const MaterialApp(home: BlankScreen());
+          return const MaterialApp(home: Splashscreen());
         }
       }));
 }
@@ -330,18 +330,34 @@ class ErrorScreen extends StatelessWidget {
   }
 }
 
-class BlankScreen extends StatelessWidget {
-  const BlankScreen({
-    super.key,
-  });
+//N9ini Splash Screen
+class Splashscreen extends StatelessWidget {
+  const Splashscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SizedBox.shrink(),
+    return const AnimatedSplashScreen(
+      companyname: 'Happy Coders Team',
+      brandnamecolor: Colors.orange,
+      backgroundcolor: Colors.black,
+      foregroundcolor: Colors.orange,
+      logo: 'assets/logo.png',
+      brandname: 'N9ini Translated Movies', 
     );
   }
 }
+//class BlankScreen extends StatelessWidget {
+  //const BlankScreen({
+ //   super.key,
+ // });
+
+//  @override
+//  Widget build(BuildContext context) {
+//    return const Scaffold(
+//      body: SizedBox.shrink(),
+//    );
+//  }
+//}
 
 Future<int> getUnusedPort() {
   return ServerSocket.bind("127.0.0.1", 0).then((socket) {
