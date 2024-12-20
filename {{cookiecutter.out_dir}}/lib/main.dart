@@ -341,7 +341,7 @@ class Splashscreen extends StatelessWidget {
       brandnamecolor: Colors.orange,
       backgroundcolor: Colors.black,
       foregroundcolor: Colors.orange,
-      logo: 'assets/logo.png',
+      logo: 'images/logo2.png',
       brandname: 'N9ini Translated Movies', 
     );
   }
