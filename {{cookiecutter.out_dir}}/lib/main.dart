@@ -12,6 +12,7 @@ import 'package:serious_python/serious_python.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:fullscreen_window/fullscreen_window.dart';
+import 'package:alp_animated_splashscreen/alp_animated_splashscreen.dart';
 
 {% for dep in cookiecutter.flutter.dependencies %}
 import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
