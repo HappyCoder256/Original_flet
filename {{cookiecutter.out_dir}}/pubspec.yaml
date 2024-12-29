@@ -20,6 +20,7 @@ dependencies:
   path_provider: ^2.1.4
   package_info_plus: ^8.0.2
   fullscreen_window: ^1.1.0
+  alp_animated_splashscreen: ^0.0.5
 
 dependency_overrides:
   wakelock_plus: ^1.2.5
