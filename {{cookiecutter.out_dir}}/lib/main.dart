@@ -147,7 +147,7 @@ void main(List<String> args) async {
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return const MaterialApp(home: Splashscreen());
+          return const MaterialApp(home: BlankScreen());
         }
       }));
 }
@@ -332,21 +332,27 @@ class ErrorScreen extends StatelessWidget {
 }
 
 //N9ini Splash Screen
-class Splashscreen extends StatelessWidget {
-  const Splashscreen({super.key});
+class BlankScreen extends StatelessWidget {
+  const BlankScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const AnimatedSplashScreen(
-      companyname: 'Happy Coders Team',
-      brandnamecolor: Colors.orange,
-      backgroundcolor: Colors.black,
-      foregroundcolor: Colors.orange,
-      logo: 'images/logo2.png',
-      brandname: 'N9ini Translated Movies', 
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'N9INI Translated Movies\nEntertainment Only\n\n\n\nPowered By Happycoders',
+          style: TextStyle(
+            fontSize: 24, 
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }
+
 //class BlankScreen extends StatelessWidget {
   //const BlankScreen({
  //   super.key,
